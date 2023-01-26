@@ -5,13 +5,16 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    component: AppComponent
   },
   {
     path: 'login',
     loadChildren: () => import('mfeLogin/LoginModule').then(m => m.LoginModule)
-  }
+  },
+  {
+    path: 'registro',
+    loadChildren: () => import('mfeInscription/InscriptionModule').then(m => m.InscriptionModule)
+  },
 ];
 
 @NgModule({

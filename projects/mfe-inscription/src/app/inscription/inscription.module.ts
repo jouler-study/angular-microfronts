@@ -4,14 +4,9 @@ import { CommonModule } from '@angular/common';
 import { InscriptionRoutingModule } from './inscription-routing.module';
 import { InscriptionComponent } from '../inscription/inscription.component';
 
-
 @NgModule({
-  declarations: [
-    InscriptionComponent
-  ],
-  imports: [
-    CommonModule,
-    InscriptionRoutingModule
-  ]
+  declarations: [InscriptionComponent],
+  imports: [CommonModule, InscriptionRoutingModule],
+  exports: [],
 })
-export class InscriptionModule { }
+export class InscriptionModule {}

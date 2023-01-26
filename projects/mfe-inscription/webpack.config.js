@@ -5,8 +5,8 @@ module.exports = withModuleFederationPlugin({
   name: 'mfeInscription',
 
   exposes: {
-    './mfeInscription': './projects/mfe-inscription/src/app/inscription/inscription.module.ts',
-    './mfeInscriptionComponent': './projects/mfe-inscription/src/app/inscription/inscription.component.ts'
+    './InscriptionModule': './projects/mfe-inscription/src/app/inscription/inscription.module.ts',
+    './InscriptionComponent': './projects/mfe-inscription/src/app/inscription/inscription.component.ts'
   },
 
   shared: {
