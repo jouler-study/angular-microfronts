@@ -1,16 +1,16 @@
-import { AppComponent } from './app.component'
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'registro',
     pathMatch: 'full'
   },
   {
-    path: 'login',
-    loadChildren: () => import('mfeLogin/LoginModule').then(m => m.LoginModule)
+    path: 'registro',
+    // load inscripción module 
+    loadChildren: () => import('./inscription/inscription.module').then(m => m.InscriptionModule)
   }
 ];
 

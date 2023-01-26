@@ -204,6 +204,107 @@
 					}
 				}
 			}
+		},
+		"mfeInscription": {
+			"projectType": "application",
+			"schematics": {},
+			"root": "projects/mfe-inscription",
+			"sourceRoot": "projects/mfe-inscription/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/mfe-inscription",
+						"index": "projects/mfe-inscription/src/index.html",
+						"main": "projects/mfe-inscription/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/mfe-inscription/tsconfig.app.json",
+						"assets": [
+							"projects/mfe-inscription/src/favicon.ico",
+							"projects/mfe-inscription/src/assets"
+						],
+						"styles": [
+							"projects/mfe-inscription/src/styles.css"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/mfe-inscription/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/mfe-inscription/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "mfeInscription:build:production",
+							"extraWebpackConfig": "projects/mfe-inscription/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "mfeInscription:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4202,
+						"publicHost": "http://localhost:4202",
+						"extraWebpackConfig": "projects/mfe-inscription/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "mfeInscription:build",
+						"extraWebpackConfig": "projects/mfe-inscription/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/mfe-inscription/tsconfig.spec.json",
+						"assets": [
+							"projects/mfe-inscription/src/favicon.ico",
+							"projects/mfe-inscription/src/assets"
+						],
+						"styles": [
+							"projects/mfe-inscription/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
 		}
 	}
 }
